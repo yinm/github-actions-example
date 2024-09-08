@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "start": "node --env-file=.env --experimental-strip-types index.ts"
+    "start": "node --env-file=.env --experimental-strip-types index.ts",
+    "start:ci": "node --experimental-strip-types index.ts"
   }
 }

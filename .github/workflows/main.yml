@@ -20,9 +20,11 @@ jobs:
         with:
           node-version-file: ".tool-versions"
 
-      - name: create .env file
-        run: |
-          touch .env
-          echo "SECRET_VALUE=${{ secrets.SECRET_VALUE }}" > .env
+      # - name: create .env file
+      #   run: |
+      #     touch .env
+      #     echo "SECRET_VALUE=${{ secrets.SECRET_VALUE }}" > .env
 
-      - run: npm start
+      - run: npm run start:ci
+        env:
+          SECRET_VALUE: ${{ secrets.SECRET_VALUE }}
