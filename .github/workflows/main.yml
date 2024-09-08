@@ -10,3 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, world!"
+
+  secret-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: ".tool-versions"
+
+      - name: create .env file
+        run: |
+          touch .env
+          echo "SECRET_VALUE=${{ secrets.SECRET_VALUE }}" > .env
+
+      - run: npm start
